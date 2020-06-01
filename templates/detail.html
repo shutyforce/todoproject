@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+<div class="jumbotron">
+  <h1 class="display-4 header">List Detail</h1>
+  <p class="lead">Check out detail of list!</p>
+</div>
+{% endblock header %}
+                
+
+
+{% block content %}
+<a href="{% url 'list' %}" class="btn btn-secondary btn-sm" role="button" aria-pressed="true">Back</a>
+<div class="alert alert-primary" role="alert">
+ <h4>
+   title : {{ object.title }}
+ </h4>
+ <p>
+   memo : {{ object.memo }}
+ </p>
+</div>
+
+{% endblock content %}

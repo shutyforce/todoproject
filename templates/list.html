@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+<div class="jumbotron">
+  <h1 class="display-4 header">Hello, world!</h1>
+  <p class="lead">This is TodoList. you can make todolist and make daily works efficient. Making a list helps organize your head, thinking, and life.</p>
+  <hr class="my-4">
+  <p>Posting TodoList</p>
+  <a class="btn btn-primary btn-md" href="{% url 'create' %}" role="button">creat post</a>
+</div>
+{% endblock header %}
+                
+
+
+{% block content %}
+{% for item in object_list %}
+<div class="container">
+  <div class="alert alert-{{ item.priority }}" role="alert">
+    <p class="list_p">
+        {{item.title}} <span class="due">duedate : {{item.duedate}}</span>
+    </p>
+    <a href="{% url 'update' item.pk %}" class="btn btn-secondary btn-sm" role="button" aria-pressed="true">Edit</a>
+    <a href="{% url 'detail' item.pk %}" class="btn btn-secondary btn-sm" role="button" aria-pressed="true">Detail</a>
+    <a href="{% url 'delete' item.pk %}" class="btn btn-secondary btn-sm" role="button" aria-pressed="true">Delete</a>
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}

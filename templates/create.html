@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="cotainer">
+  <form action="" method="POST">{% csrf_token %}
+    <!-- <p>
+      title {{form.title}}
+    </p>
+    <p>
+      memo {{form.memo}}
+    </p>
+    <p>
+      priority {{form.priority}}
+    </p> -->
+    {{form.as_p}}
+    <input type="submit" value="create">
+  </form>
+</div>
+{% endblock content %}
